@@ -36,7 +36,7 @@ def create_app(testing=False):
         app.testing = True
 
     with app.app_context():
-        app.register_blueprint(repos_bp, url_prefix="/repos")
+        app.register_blueprint(repos_bp, url_prefix="/")
         app.register_blueprint(github_bp, url_prefix="/")
 
         return app
