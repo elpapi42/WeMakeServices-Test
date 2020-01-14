@@ -7,8 +7,7 @@ from flask_dance.contrib.github import make_github_blueprint
 from application.repos import repos_bp
 
 github_bp = make_github_blueprint(
-    scope="public_repo", 
-    redirect_url="/repos/",
+    scope="public_repo",
     login_url="/github/",
     authorized_url="/github/authorized/"
 )
