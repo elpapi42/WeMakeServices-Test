@@ -1,4 +1,4 @@
-from flask import redirect, url_for, jsonify
+from flask import redirect, url_for, jsonify, render_template
 from flask_dance.contrib.github import github
 
 from . import repos_bp
@@ -33,4 +33,4 @@ def render_profile():
         "repos": repos_list
     }
 
-    return jsonify(user_data)
+    return render_template("user_data.html", user_data=user_data)

@@ -1,0 +1,10 @@
+<!doctype html>
+<img src="{{ user_data.avatar_url }}" alt="Avatar" height="128" width="128"/><br><br>
+<body>{{ user_data.username }}</body><br><br>
+<section class="content">
+    {% for repo in user_data.repos %}
+        <body>Name: {{repo.name}}</body><br>
+        <body>URL: {{repo.url}}</body><br>
+        <body>Forks: {{repo.forks}}</body><br><br>
+    {% endfor %}
+</section>
