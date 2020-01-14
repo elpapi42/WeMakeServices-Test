@@ -2,8 +2,16 @@ from os.path import join, dirname
 
 from dotenv import load_dotenv
 from flask import Flask
+from flask_dance.contrib.github import make_github_blueprint
 
 from application.repos import repos_bp
+
+github_bp = make_github_blueprint(
+    scope="public_repo", 
+    redirect_url="/repos/",
+    login_url="/github/",
+    authorized_url="/github/authorized/"
+)
 
 def create_app(testing=False):
     """ 
@@ -29,6 +37,7 @@ def create_app(testing=False):
 
     with app.app_context():
         app.register_blueprint(repos_bp, url_prefix="/repos")
+        app.register_blueprint(github_bp, url_prefix="/")
 
         return app
 
