@@ -2,7 +2,7 @@
 
 """Instance and run the application server."""
 
-from application import create_app
+from application.app import create_app
 
 app = create_app()
 
