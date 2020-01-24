@@ -1,10 +1,26 @@
 <!doctype html>
-<img src="{{ user_data.avatar_url }}" alt="Avatar" height="128" width="128"/><br><br>
-<body>{{ user_data.username }}</body><br><br>
-<section class="content">
-    {% for repo in user_data.repos %}
-        <body>Name: {{repo.name}}</body><br>
-        <body>URL: {{repo.url}}</body><br>
-        <body>Forks: {{repo.forks}}</body><br><br>
-    {% endfor %}
-</section>
+<body>
+    <main>
+        <header>
+            <img src="{{ user_data.avatar_url }}" alt="Avatar" height="128" width="128"/><br>
+            <h1>{{ user_data.username }}</h1>
+        </header>
+
+        <article>
+            {% for repo in user_data.repos %}
+                <p>
+                    Name: <strong>{{repo.name}}</strong><br>
+                    URL: <a href="{{repo.url}}">{{repo.url}}</a><br>
+                    Forks: {{repo.forks}}<br>
+                </p>
+            {% endfor %}
+        </article>
+
+        <footer>
+            <p>
+                Created by: <a href="https://github.com/ElPapi42">Whitman Bohorquez</a><br>
+                Source code: <a href="https://github.com/ElPapi42/WeMakeServices-Test">https://github.com/ElPapi42/WeMakeServices-Test</a><br>
+            </p>
+        </footer>
+    </main>
+</body>
